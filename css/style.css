@@ -1,0 +1,165 @@
+/* Global Reset */
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/************* ADMIN PAGE CSS ******************/
+
+/*Side Panel CSS*/
+.side-panel-container {
+  background-color: #0e2e61;
+  min-height: 100vh;
+}
+
+.side-panel-container hr {
+  margin: 2rem 0;
+}
+
+.side-panel-container .title {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.side-panel-container .subtitle {
+  margin-top: 2rem;
+  margin-bottom: 0.2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 1.5rem;
+}
+
+.side-panel-container li {
+  margin-top: 0.7rem;
+}
+
+.side-panel-container i {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.side-panel-container li a {
+  font-size: 1.2rem;
+}
+
+/*Right Panel CSS*/
+.admin-pic {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+#date_time {
+  font-weight: 800;
+  margin-left: 1.5rem;
+}
+
+.right-panel {
+  background-color: rgb(241, 239, 239);
+}
+
+.right-panel .title {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.employee-options {
+  width: 90%;
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.employee-options button {
+  margin-right: 2rem;
+}
+
+.add_employee_form {
+  width: 90%;
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.label-container i {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+.label-container label {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  text-align: end;
+}
+
+.label-container input {
+  width: 70%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  outline: none;
+  padding: 0.25rem 0;
+}
+
+.add_employee_form button {
+  width: 40%;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* Employee Table */
+#employee_table {
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+#employee_table th,
+#employee_table td {
+  padding: 1rem;
+}
+
+/* Products CSS */
+.add_product_form {
+  width: 60%;
+  background-color: #fff;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 5rem;
+}
+
+.add_product_form button {
+  width: 40%;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.add_product_form input[type="file"] {
+  border: none;
+}

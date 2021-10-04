@@ -1,0 +1,470 @@
+body {
+  overflow-x: hidden;
+  font-family: "Calibri";
+}
+
+.dh {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.logo {
+  font-style: italic;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0rem 1rem;
+  border-radius: 10px;
+}
+
+#search-items {
+  margin-left: 1rem;
+  padding: 0.75rem 0;
+  width: 20%;
+  border-radius: 5px;
+  border: none;
+}
+
+.fa-search,
+#search-items {
+  font-size: 1.2rem;
+}
+
+#search {
+  width: 70%;
+  padding: 0.9rem 1rem;
+  font-weight: 700;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Navigation */
+.main-nav {
+  background-color: rgb(255, 165, 29);
+  color: #fff;
+  padding: 0.8rem 0rem;
+}
+
+.nav {
+  background-color: #333;
+  padding: 1rem;
+}
+
+.nav-items li a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-size: 1.2rem;
+  transition: 0.75s ease-in-out;
+  position: relative;
+}
+
+.nav-items li a:hover {
+  color: red;
+}
+
+.drp-link {
+  cursor: pointer;
+  position: relative;
+}
+
+.drp-link button {
+  border: none;
+  background-color: #333;
+  color: #fff;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+}
+
+.drp-item {
+  background-color: #333;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 1.2rem);
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.25s ease-in-out;
+  z-index: 5;
+  min-width: 200px;
+}
+
+.drp-item a {
+  margin-top: 0.7rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.5s ease-in-out;
+}
+
+.drp-item a:hover {
+  color: red;
+}
+
+.drp-link > button:focus + .drp-item {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* HERO */
+.showcase {
+  width: 100%;
+  height: 30rem;
+  background: url("./images/misc/main-wallpaper.jpg") no-repeat 0% 25% / cover;
+  position: relative;
+}
+
+.showcase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(155, 35, 53, 0.5),
+    rgb(0, 0, 0)
+  );
+}
+
+.z-fix {
+  z-index: 1;
+  position: relative;
+}
+
+.showcase-container {
+  transform: translateY(-100px);
+  opacity: 0;
+}
+
+.showcase-container h1,
+.showcase-container h2 {
+  font-weight: bolder;
+  font-size: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.showcase-container p {
+  width: 35%;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.shopnow-btn {
+  padding: 0.8rem 0;
+  width: 20%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: #c60021;
+  color: #fff;
+}
+
+#user-profile img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+/* Products */
+.p-title {
+  font-weight: 800;
+  letter-spacing: 0.25rem;
+  font-size: 2rem;
+  margin-left: 1rem;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.p-title::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  top: 0;
+  left: -2%;
+  background-color: rgb(240, 156, 29);
+}
+
+#cart {
+  height: 40px;
+  padding: 0.1rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.c-txt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+#user-profile {
+  height: 40px;
+  width: 40px;
+  padding: 0.1rem;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.product-container {
+  width: 300px;
+  height: auto;
+  padding: 1.6rem 1.2rem;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.product-container img {
+  height: 200px;
+  object-fit: contain;
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.product-container:hover #product-img {
+  transform: scale(1.1);
+}
+
+.rating-container i {
+  font-size: 2rem;
+  color: rgb(245, 245, 27);
+  filter: drop-shadow(0 0 1px black);
+}
+
+#product_name {
+  font-weight: 900;
+  font-size: "arial";
+  font-size: 1.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#price {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: rgb(230, 117, 43);
+}
+
+.product-container a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  background-color: rgb(240, 156, 29);
+}
+
+/* Login CSS */
+.login-page-body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fad961;
+  background-image: linear-gradient(40deg, #fad961 0%, #f76b1c 120%);
+}
+
+.login-container {
+  height: 81.6vh;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+}
+
+.login-container .row .left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background: url("images/misc/main-wallpaper.jpg") no-repeat;
+  background-size: cover;
+  background-position: 70% 0;
+  position: relative;
+  padding: 0 1.5rem;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.login-container .row .left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.backToHome {
+  position: absolute;
+  z-index: 2;
+  top: 3.5%;
+  left: 5%;
+  background-color: rgb(212, 78, 16);
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.5s ease-in-out;
+  font-size: 1.1rem;
+}
+
+.backToHome:hover {
+  background-color: black;
+}
+
+.backToHome a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.login-container .row .left .content {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+#rememberMe {
+  max-width: 1rem;
+  margin-right: 0.5rem;
+}
+.rememberMe {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rememberMe col-span {
+  margin-left: 0.5rem;
+}
+
+.login-container .row .left .content button {
+  padding: 0.5rem 2.5rem;
+  margin-top: 1rem;
+}
+
+.heading-fix {
+  margin-top: -0.5rem !important;
+  font-size: 1.5rem !important;
+}
+
+.login-container .row .left .content .heading {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container .row .left .content input {
+  border: none;
+  margin-top: 1.5rem;
+  width: 80%;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  outline: none;
+  background-color: none;
+  border-radius: 30px;
+}
+
+.login-container .row .left .content button,
+.content center button {
+  background-color: rgb(212, 78, 16);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.login-container .row .right {
+  background-color: rgb(221, 148, 105);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.login-container .row .right .content {
+  color: black;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.login-container .row .right .content .heading {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.15rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 1rem;
+}
+
+.signup-container {
+  min-height: 60%;
+  width: 100%;
+  display: flex;
+}
+
+.signup-container .left-side {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+  margin-right: 2rem;
+}
+
+.signup-container .left-side label,
+.signup-container .right-side label {
+  margin-top: 1rem;
+  color: #fff;
+}
+
+#b-date {
+  padding: 0.45rem 0.5rem;
+}
+
+.signup-container .right-side {
+  display: flex;
+  flex-direction: column;
+  width: 47%;
+}
+
+.signup-container .right-side input,
+.signup-container .left-side input {
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1.1rem;
+}
+
+.right .content .heading {
+  position: relative;
+  text-transform: uppercase;
+  background-color: rgb(212, 78, 16);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  text-align: center;
+  width: 90%;
+}
+#loginpage-submit {
+  padding: 2rem;
+}
