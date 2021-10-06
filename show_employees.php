@@ -1,19 +1,31 @@
+<?php 
+    // Add the main Class
+    require_once("main.php");
+    // Call the show employee function 
+    $employees = $main_class->showEmployees();
+    // Get user session details 
+    $userdatails = $main_class->get_userdata();
+    // Check if the account is admin
+    if(isset($userdatails) && $userdatails['access'] == 'admin'){
+        
+    } else {
+        header("Location: login.php");
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- FONT Awesome -->
     <script src="https://kit.fontawesome.com/4f1a945a46.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="css/style.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
 
-    <style>
-        <?php include "css/style.css"?>
-    </style>
     <title>DH Hardware | Admin </title>
   </head>
   <body>
@@ -21,8 +33,6 @@
         <div class="row m-0 p-0">
             <!-- Side Panel -->
             <div class="col-12 col-md-3 side-panel-container m-0 px-4 py-4 text-white">
-            <!-- Company name -->
-           
                 <p class="title">Admin Panel</p>
                 <hr class="m-0 p-0 mt-2" style="height: 3px">
 
@@ -53,7 +63,7 @@
             <div class="col-12 col-md-9 m-0 p-0 right-panel">
                 <div class="bg-white text-dark px-4 py-4 shadow d-flex justify-content-end align-items-center">
                     <img src="images/admin-pic.png" alt="admin profile" class="admin-pic">
-                    <p class="m-0 p-0">Admin name  <span id="date_time"></span></p>
+                    <p class="m-0 p-0"><?= $userdatails['full_name']; ?><span id="date_time"></span></p>
                 </div>
                 <p class="text-center title">Manage Employees</p>
 
@@ -75,10 +85,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                            require_once("main.php");
-                            $employees = $store->showEmployees();
-                        ?>
                         <?php foreach($employees as $employee){ ?>
                             <tr>
                                 <td><?=$employee['name'] ?></td>
@@ -86,7 +92,7 @@
                                 <td><?=$employee['email'] ?></td>
                                 <td><?=$employee['age'] ?></td>
                                 <td><?=$employee['address'] ?></td>
-                                <td><?=$employee['position'] ?></td>
+                                <td><?=$employee['login_type'] ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

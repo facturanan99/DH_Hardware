@@ -1,3 +1,15 @@
+<?php 
+    // Add the main Class
+    require_once("main.php");
+    // Get user session details 
+    $userdatails = $main_class->get_userdata();
+    // Check if the account is admin
+    if(isset($userdatails) && $userdatails['access'] == 'admin'){
+        
+    } else {
+        header("Location: login.php");
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,14 +41,12 @@
                 <ul class='list-unstyled'>
                     <li><i class="fas fa-user-tie"></i> <a href="show_employees.php">Employees</a></li>
                     <li><i class="fab fa-product-hunt"></i><a href="products.php">Products</a></li>
-                    <li><i class="fas fa-warehouse"></i><a href="#">Stocks</a></li>
                 </ul>
 
                 <hr>
 
                 <p class="subtitle text-muted mt-3">BUSINESS</p>
                 <ul class='list-unstyled'>
-                    <li><i class="fas fa-user-tie"></i> <a href="#">Analytics</a></li>
                     <li><i class="fab fa-product-hunt"></i><a href="#">Customers</a></li>
                     <li><i class="fas fa-warehouse"></i><a href="#">Orders</a></li>
                     <li><i class="fas fa-warehouse"></i><a href="#">Sales</a></li>
@@ -46,7 +56,6 @@
                 <p class="subtitle text-muted mt-3">PAGES</p>
                 <ul class='list-unstyled'>
                     <li><i class="fas fa-user-tie"></i> <a href="index.php">Home</a></li>
-                    <li><i class="fab fa-product-hunt"></i><a href="#">Faq</a></li>
                     <li><i class="fas fa-warehouse"></i><a href="#">Messages</a></li>
                 </ul>
             </div>
@@ -55,12 +64,12 @@
             <div class="col-12 col-md-9 m-0 p-0 right-panel">
                 <div class="bg-white text-dark px-4 py-4 shadow d-flex justify-content-end align-items-center">
                     <img src="images/admin-pic.png" alt="admin profile" class="admin-pic">
-                    <p class="m-0 p-0">Admin name  <span id="date_time"></span></p>
+                    <p class="m-0 p-0"><?= $userdatails['full_name']; ?>  <span id="date_time"></span></p>
                 </div>
                 <p class="text-center title">Manage Products</p>
 
                 <div class="employee-options px-3 py-4">
-                    <a href="#"><button class="btn btn-primary text-white">Show Products</button></a>
+                    <a href="show_products.php"><button class="btn btn-primary text-white">Show Products</button></a>
                     <button class="btn btn-info text-white">Add Product</button>
                     <a href="update_product.php"><button class="btn btn-success text-white">Update Product</button></a>
                     <a href="delete_product.php"><button class="btn btn-danger text-white">Delete Product</button></a>
@@ -100,8 +109,6 @@
                     <button type="submit" class="btn btn-primary" name="add_product">Add Product</button>
 
                 <?php 
-                
-                require_once("main.php");
                 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     $product_name = $_POST['pname'];
@@ -121,7 +128,7 @@
                     }
 
                     
-                    $con = $store->openConnection();
+                    $con = $main_class->openConnection();
                     $query = $con->prepare("INSERT INTO products (`product_name`, `pic_name`, `price`, `qty`, `category`) VALUES (?, ?, ?, ?, ?)");
                     $query->execute([$product_name, $pic_name, $price, $qty, $category]);
                 }

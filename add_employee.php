@@ -1,3 +1,15 @@
+<?php                                    
+    require_once("main.php");
+    $main_class->addEmployee();   
+    $userdatails = $main_class->get_userdata();
+    print_r($userdatails);
+
+    if(isset($userdatails) && $userdatails['access'] == 'admin'){
+
+    } else {
+        header("Location: login.php");
+    }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -10,9 +22,7 @@
     <!-- FONT Awesome -->
     <script src="https://kit.fontawesome.com/4f1a945a46.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <style>
-        <?php include "css/style.css"?>
-    </style>
+    <link href="css/style.css?v=<?php echo time(); ?>" rel="stylesheet" type="text/css" />
     <title>DH Hardware | Admin </title>
   </head>
   <body>
@@ -52,7 +62,7 @@
             <div class="col-12 col-md-9 m-0 p-0 right-panel">
                 <div class="bg-white text-dark px-4 py-4 shadow d-flex justify-content-end align-items-center">
                     <img src="images/admin-pic.png" alt="admin profile" class="admin-pic">
-                    <p class="m-0 p-0">Admin name  <span id="date_time"></span></p>
+                    <p class="m-0 p-0"><?php echo $userdatails['full_name'] ?> <span id="date_time"></span></p>
                 </div>
                 <p class="text-center title">Manage Employees</p>
 
@@ -103,16 +113,6 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-
-                <?php 
-                
-                    
-                    require_once("main.php");
-                    $store->addEmployee();
-
-                
-            
-                ?>
                 </form>
             </div>
         </div>
